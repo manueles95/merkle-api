@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 var bodyParser = require('body-parser');
 const Merkle = require('./utils/merkle');
@@ -8,6 +9,7 @@ const port = process.env.PORT || 8080;
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
